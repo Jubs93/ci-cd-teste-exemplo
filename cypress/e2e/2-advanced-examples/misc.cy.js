@@ -6,7 +6,7 @@ context('Misc', () => {
   })
 
   it('cy.exec() - execute a system command', () => {
-    // execute a system command.
+        // execute a system command.
     // so you can take actions necessary for
     // your test outside the scope of Cypress.
     // https://on.cypress.io/exec
