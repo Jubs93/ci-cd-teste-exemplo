@@ -3,7 +3,10 @@ name: Teste CI - Cypress
 on:
   push:
     branches: [ "main" ]
-  
+
+permissions:
+  contents: write
+
 jobs:
   build:
 
@@ -23,10 +26,12 @@ jobs:
       run: npm test
 
     - name: Gerar relatorio
+      if: always()
       run: npm run report:generate
     
     - name: Publicar relatório no Gh Pages
+      if: always()
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: ./allure-report
